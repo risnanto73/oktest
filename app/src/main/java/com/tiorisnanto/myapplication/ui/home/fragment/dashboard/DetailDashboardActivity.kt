@@ -1,8 +1,10 @@
 package com.tiorisnanto.myapplication.ui.home.fragment.dashboard
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.print.PrintHelper
 import com.tiorisnanto.myapplication.databinding.ActivityDetailDashboardBinding
 
 
@@ -26,6 +28,17 @@ class DetailDashboardActivity : AppCompatActivity() {
             binding.txtDate.setText(intent.getStringExtra("date"))
             binding.imgQrCode.setImageResource(intent.getIntExtra("qrCode", 0))
         }
+
+        binding.button.setOnClickListener {
+            doPhotoPrint(bmp)
+        }
+    }
+
+    private fun doPhotoPrint(bitmap: Bitmap) {
+        val printHelper = PrintHelper(this)
+        printHelper.scaleMode = PrintHelper.SCALE_MODE_FIT
+        printHelper.printBitmap("wisata", bitmap)
+
     }
 
 

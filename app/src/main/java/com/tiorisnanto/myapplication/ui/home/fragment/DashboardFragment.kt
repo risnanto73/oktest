@@ -2,6 +2,7 @@ package com.tiorisnanto.myapplication.ui.home.fragment
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,21 +10,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.print.PrintHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import com.squareup.picasso.Picasso
 import com.tiorisnanto.myapplication.R
+import com.tiorisnanto.myapplication.dao.Code
+import com.tiorisnanto.myapplication.dao.CodeDB
 import com.tiorisnanto.myapplication.databinding.FragmentDashboardBinding
 import com.tiorisnanto.myapplication.ui.home.fragment.dashboard.DetailDashboardActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 
 
 class DashboardFragment : Fragment() {
 
+    private var codeID: Int = 0
+
+    val db by lazy {
+        CodeDB(requireContext())
+    }
     private var binding: FragmentDashboardBinding? = null
     lateinit var auth: FirebaseAuth
 
@@ -68,6 +79,10 @@ class DashboardFragment : Fragment() {
                 bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)
                 val byteArray = stream.toByteArray()
 
+//                CoroutineScope(Dispatchers.IO).launch {
+//                    db.codeDao().addCode(Code(codeID, binding!!.txtDate.text.toString()))
+//                }
+
                 binding!!.imgQrCode.setImageBitmap(bmp)
 
                 Toast.makeText(activity, "Wisata Coban Putri Malang ${data}", Toast.LENGTH_SHORT)
@@ -76,6 +91,8 @@ class DashboardFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString("date", data)
                 val intent = Intent(activity, DetailDashboardActivity::class.java)
+
+//                doPhotoPrint(bmp)
                 intent.putExtra("qrCode", byteArray)
                 intent.putExtras(bundle)
                 startActivity(intent)
@@ -84,9 +101,18 @@ class DashboardFragment : Fragment() {
                 e.printStackTrace()
             }
 
+
+
+
+
         }
 
     }
+
+
+
+
+
 
     private fun showProfile() {
         auth = FirebaseAuth.getInstance()

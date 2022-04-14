@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Syatria/AndroidStudioProjects/oktest/app/src/main/res/layout/activity_detail_dashboard.xml" value="0.264" />
+        <entry key="..\:/Users/Syatria/AndroidStudioProjects/oktest/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1395" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1505" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_chrome_reader_mode_24.xml" value="0.1395" />
