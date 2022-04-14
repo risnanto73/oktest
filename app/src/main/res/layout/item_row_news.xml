@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:outlineSpotShadowColor="@color/colorAccent"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgNews"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:scaleType="center"
+            android:src="@drawable/a_bg" />
+
+        <TextView
+            android:id="@+id/nameNews"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgNews"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:justificationMode="inter_word"
+            android:text="Youtube"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/publishNews"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameNews"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="2009-10-10" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

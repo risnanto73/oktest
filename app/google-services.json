@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "324550076440",
+    "project_id": "e-comz-983ae",
+    "storage_bucket": "e-comz-983ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324550076440:android:b559b43ffd6dfeaf9a3b6d",
+        "android_client_info": {
+          "package_name": "com.tiorisnanto.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324550076440-146so9mkbbp17d710ejnmlvmmii7a4rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiorisnanto.myapplication",
+            "certificate_hash": "2dbb9c534350ce2435dd4a1a90c6aea23ea55a6a"
+          }
+        },
+        {
+          "client_id": "324550076440-gps5pb18a0pkumchje9k5qb112u30h8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQVDQNq1vIhTc7GJOWRQHwnVPwAWTLPAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324550076440-gps5pb18a0pkumchje9k5qb112u30h8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
