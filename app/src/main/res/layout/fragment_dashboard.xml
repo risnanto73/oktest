@@ -80,6 +80,14 @@
                 android:layout_margin="10dp"
                 android:text="generate qr code" />
 
+            <Button
+                android:id="@+id/btnData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Go to Data"
+                android:textAllCaps="false" />
+
         </LinearLayout>
 
     </ScrollView>

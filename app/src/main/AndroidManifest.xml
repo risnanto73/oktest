@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ui.home.fragment.note.DataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.fragment.note.DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.fragment.dashboard.DetailDashboardActivity"
             android:exported="false" />
         <activity

@@ -72,7 +72,6 @@ class MessageFragment : Fragment() {
                         setHasFixedSize(true)
                         newsAdapter.notifyDataSetChanged()
                         adapter = newsAdapter
-
                     }
                 }
             }
@@ -81,5 +80,6 @@ class MessageFragment : Fragment() {
                 Toast.makeText(activity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 }

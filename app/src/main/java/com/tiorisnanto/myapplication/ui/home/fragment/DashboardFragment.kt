@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso
 import com.tiorisnanto.myapplication.R
 import com.tiorisnanto.myapplication.databinding.FragmentDashboardBinding
 import com.tiorisnanto.myapplication.ui.home.fragment.dashboard.DetailDashboardActivity
+import com.tiorisnanto.myapplication.ui.home.fragment.note.DataActivity
 import java.io.ByteArrayOutputStream
 
 
@@ -50,6 +51,10 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showProfile()
+
+        binding!!.btnData.setOnClickListener {
+            startActivity(Intent(requireContext(), DataActivity::class.java))
+        }
 
         binding!!.btnGenerate.setOnClickListener {
             val data = binding!!.txtDate.text.toString().trim()
@@ -82,6 +87,7 @@ class DashboardFragment : Fragment() {
 //                intent.putExtra("qrCode", byteArray)
 //                intent.putExtras(bundle)
 //                startActivity(intent)
+
                 doPhotoPrint(byteArray)
             } catch (e: WriterException) {
                 e.printStackTrace()
@@ -94,11 +100,14 @@ class DashboardFragment : Fragment() {
     private fun doPhotoPrint(byteArray: ByteArray) {
         val printHelper = PrintHelper(requireContext())
         printHelper.scaleMode = PrintHelper.SCALE_MODE_FIT
-        printHelper.printBitmap("wisata", BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size))
+        // units are in points (1/72 of an inch)
+        val titleBaseLine = 72f
+        val leftMargin = 54f
+
+        val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+        printHelper.printBitmap("wisata", bitmap)
 
     }
-
-
 
 
     private fun showProfile() {

@@ -12,6 +12,7 @@ import com.tiorisnanto.myapplication.ui.home.adapter.HomeViewPagerAdapter
 import com.tiorisnanto.myapplication.ui.home.fragment.CartFragment
 import com.tiorisnanto.myapplication.ui.home.fragment.DashboardFragment
 import com.tiorisnanto.myapplication.ui.home.fragment.MessageFragment
+import com.tiorisnanto.myapplication.ui.home.fragment.NoteFragment
 
 class HomeFragment : Fragment() {
 
@@ -42,12 +43,14 @@ class HomeFragment : Fragment() {
         adapter.addFragment(DashboardFragment(), "Dashboard")
         adapter.addFragment(CartFragment(), "Cart")
         adapter.addFragment(MessageFragment(), "Message")
+        adapter.addFragment(NoteFragment(), "Note")
         binding.viewPager.adapter = adapter
         binding.tabs.setupWithViewPager(binding.viewPager)
 
         binding.tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_home_24)
         binding.tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_add_shopping_cart_24)
         binding.tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_chrome_reader_mode_24)
+        binding.tabs.getTabAt(3)!!.setIcon(R.drawable.ic_baseline_chrome_reader_mode_24)
 
     }
 

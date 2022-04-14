@@ -9,7 +9,6 @@
         android:id="@+id/carouselRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:padding="20dp"
         tools:listitem="@layout/item_slider" />
 
     <androidx.recyclerview.widget.RecyclerView
