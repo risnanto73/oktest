@@ -18,13 +18,8 @@ import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import com.squareup.picasso.Picasso
 import com.tiorisnanto.myapplication.R
-import com.tiorisnanto.myapplication.dao.Code
-import com.tiorisnanto.myapplication.dao.CodeDB
 import com.tiorisnanto.myapplication.databinding.FragmentDashboardBinding
 import com.tiorisnanto.myapplication.ui.home.fragment.dashboard.DetailDashboardActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 
 
@@ -32,9 +27,6 @@ class DashboardFragment : Fragment() {
 
     private var codeID: Int = 0
 
-    val db by lazy {
-        CodeDB(requireContext())
-    }
     private var binding: FragmentDashboardBinding? = null
     lateinit var auth: FirebaseAuth
 
@@ -79,37 +71,32 @@ class DashboardFragment : Fragment() {
                 bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)
                 val byteArray = stream.toByteArray()
 
-//                CoroutineScope(Dispatchers.IO).launch {
-//                    db.codeDao().addCode(Code(codeID, binding!!.txtDate.text.toString()))
-//                }
-
                 binding!!.imgQrCode.setImageBitmap(bmp)
 
                 Toast.makeText(activity, "Wisata Coban Putri Malang ${data}", Toast.LENGTH_SHORT)
                     .show()
 
-                val bundle = Bundle()
-                bundle.putString("date", data)
-                val intent = Intent(activity, DetailDashboardActivity::class.java)
-
-//                doPhotoPrint(bmp)
-                intent.putExtra("qrCode", byteArray)
-                intent.putExtras(bundle)
-                startActivity(intent)
-
+//                val bundle = Bundle()
+//                bundle.putString("date", data)
+//                val intent = Intent(activity, DetailDashboardActivity::class.java)
+//                intent.putExtra("qrCode", byteArray)
+//                intent.putExtras(bundle)
+//                startActivity(intent)
+                doPhotoPrint(byteArray)
             } catch (e: WriterException) {
                 e.printStackTrace()
             }
-
-
-
-
 
         }
 
     }
 
+    private fun doPhotoPrint(byteArray: ByteArray) {
+        val printHelper = PrintHelper(requireContext())
+        printHelper.scaleMode = PrintHelper.SCALE_MODE_FIT
+        printHelper.printBitmap("wisata", BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size))
 
+    }
 
 
 

@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.fragment.MessageFragment">
 
-    <com.jackandphantom.carouselrecyclerview.view.ReflectionImageView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/carouselRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp" />
+        android:layout_height="280dp"
+        android:padding="20dp"
+        tools:listitem="@layout/item_slider" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNews"

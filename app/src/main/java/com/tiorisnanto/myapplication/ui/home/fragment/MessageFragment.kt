@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tiorisnanto.myapplication.R
 import com.tiorisnanto.myapplication.databinding.FragmentMessageBinding
 import com.tiorisnanto.myapplication.ui.home.fragment.message.adapter.NewsAdapter
+import com.tiorisnanto.myapplication.ui.home.fragment.message.adapter.SliderAdapter
 import com.tiorisnanto.myapplication.ui.home.fragment.message.api.ApiConfig
 import com.tiorisnanto.myapplication.ui.home.fragment.message.model.ResponseNews
 import retrofit2.Call
@@ -35,6 +36,7 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recvNews = activity?.findViewById<RecyclerView>(R.id.rvNews)
+        val recvNewsHorizontal = activity?.findViewById<RecyclerView>(R.id.carouselRecyclerView)
 
         ApiConfig.getApiService().getNews().enqueue(object : Callback<ResponseNews>{
             override fun onResponse(call: Call<ResponseNews>, response: Response<ResponseNews>) {
@@ -55,7 +57,29 @@ class MessageFragment : Fragment() {
             override fun onFailure(call: Call<ResponseNews>, t: Throwable) {
                 Toast.makeText(activity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
+        })
 
+        ApiConfig.getApiService().getNews().enqueue(object : Callback<ResponseNews>{
+            override fun onResponse(call: Call<ResponseNews>, response: Response<ResponseNews>) {
+                if (response.isSuccessful){
+                    val responseNews = response.body()
+                    val dataNews = responseNews?.articles
+                    val newsAdapter = SliderAdapter(dataNews)
+                    recvNewsHorizontal?.apply {
+                        val lmb = LinearLayoutManager(context)
+                        lmb.orientation = LinearLayoutManager.HORIZONTAL
+                        layoutManager = lmb
+                        setHasFixedSize(true)
+                        newsAdapter.notifyDataSetChanged()
+                        adapter = newsAdapter
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseNews>, t: Throwable) {
+                Toast.makeText(activity, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
         })
     }
 }

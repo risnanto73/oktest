@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Syatria/AndroidStudioProjects/oktest/app/src/main/res/layout/activity_detail_dashboard.xml" value="0.264" />
-        <entry key="..\:/Users/Syatria/AndroidStudioProjects/oktest/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.1395" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1505" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_baseline_chrome_reader_mode_24.xml" value="0.1395" />
@@ -39,6 +37,7 @@
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_row_carousel.xml" value="0.15198087431693988" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_row_new.xml" value="0.7319078947368421" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_row_news.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_slider.xml" value="0.15198087431693988" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/item_slider_dashboard.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/nav_header_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/tiola/AndroidStudioProjects/MyApplication/app/src/main/res/layout/nav_view.xml" value="0.22826086956521738" />

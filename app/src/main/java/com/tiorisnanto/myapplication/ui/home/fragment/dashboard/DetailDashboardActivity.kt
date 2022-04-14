@@ -37,7 +37,7 @@ class DetailDashboardActivity : AppCompatActivity() {
     private fun doPhotoPrint(bitmap: Bitmap) {
         val printHelper = PrintHelper(this)
         printHelper.scaleMode = PrintHelper.SCALE_MODE_FIT
-        printHelper.printBitmap("wisata", bitmap)
+        printHelper.printBitmap("printQrCode", bitmap)
 
     }
 
