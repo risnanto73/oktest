@@ -47,9 +47,9 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        nameEditText = findViewById(R.id.name)
-        ageEditText = findViewById(R.id.age)
-        emailEditText = findViewById(R.id.email)
+//        nameEditText = findViewById(R.id.name)
+//        ageEditText = findViewById(R.id.age)
+//        emailEditText = findViewById(R.id.email)
         dateTex = findViewById(R.id.date)
         imgCoder = findViewById(R.id.imgQrCode)
         btnPrintPDF = findViewById(R.id.btnPrint)
@@ -74,9 +74,9 @@ class DetailsActivity : AppCompatActivity() {
         /* Check  if activity opened from List Item Click */
         if (intent.hasExtra("id")) {
             modifyId = intent.getStringExtra("id")!!
-            nameEditText.setText(intent.getStringExtra("name"))
-            ageEditText.setText(intent.getStringExtra("age"))
-            emailEditText.setText(intent.getStringExtra("email"))
+//            nameEditText.setText(intent.getStringExtra("name"))
+//            ageEditText.setText(intent.getStringExtra("age"))
+//            emailEditText.setText(intent.getStringExtra("email"))
             txtTime.setText(intent.getStringExtra("time"))
             dateTex.setText(intent.getStringExtra("date"))
             textCountTotal.setText(intent.getStringExtra("count"))
@@ -115,18 +115,18 @@ class DetailsActivity : AppCompatActivity() {
             findViewById<Button>(R.id.btnUpdate).visibility = View.GONE
             findViewById<Button>(R.id.btnDelete).visibility = View.GONE
             findViewById<Button>(R.id.btnPrint).visibility = View.GONE
+            findViewById<Button>(R.id.btnReset).visibility = View.GONE
             tilTime.visibility = View.GONE
             txtTime.visibility = View.GONE
         }
 
         imgCoder.setOnClickListener {
-            val name = nameEditText.text.toString()
-            val age = ageEditText.text.toString()
-            val email = emailEditText.text.toString()
+//            val name = nameEditText.text.toString()
+//            val age = ageEditText.text.toString()
+//            val email = emailEditText.text.toString()
             val date = txtTime.text.toString()
             Toast.makeText(
-                this,
-                "Nama " + "${name}" + "\n" + "Umur " + "${age}" + "\n" + "Email " + "${email}" + "\n" + "Tanggal " + "${date}",
+                this,"Tanggal " + "${date}",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -214,9 +214,9 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     fun add(v: View) {
-        val name = nameEditText.text.toString()
-        val age = ageEditText.text.toString()
-        val email = emailEditText.text.toString()
+//        val name = nameEditText.text.toString()
+//        val age = ageEditText.text.toString()
+//        val email = emailEditText.text.toString()
         val date = dateTex.text.toString()
         val count = textCountTotal.text.toString()
         val price = textHargaTotal.text.toString()
@@ -241,23 +241,24 @@ class DetailsActivity : AppCompatActivity() {
 
         val qrCode = byteArray
 
-        if (name.isEmpty() || age.isEmpty() || email.isEmpty()) {
-            nameEditText.error = "Please enter name"
-            ageEditText.error = "Please enter age"
-            emailEditText.error = "Please enter email"
-        } else {
-            dbHandler.insertRow(name, age, email, date, qrCode, count, price)
-            Toast.makeText(this, "Data Addeded", Toast.LENGTH_SHORT).show()
-            finish()
-        }
+        dbHandler.insertRow(date, qrCode, count, price)
+        Toast.makeText(this, "Data Addeded", Toast.LENGTH_SHORT).show()
+        finish()
+//        if (name.isEmpty() || age.isEmpty() || email.isEmpty()) {
+//            nameEditText.error = "Please enter name"
+//            ageEditText.error = "Please enter age"
+//            emailEditText.error = "Please enter email"
+//        } else {
+//
+//        }
 
 
     }
 
     fun update(v: View) {
-        val name = nameEditText.text.toString()
-        val age = ageEditText.text.toString()
-        val email = emailEditText.text.toString()
+//        val name = nameEditText.text.toString()
+//        val age = ageEditText.text.toString()
+//        val email = emailEditText.text.toString()
         val date = dateTex.text.toString()
         val count = textCountTotal.text.toString()
         val price = textHargaTotal.text.toString()
@@ -283,7 +284,7 @@ class DetailsActivity : AppCompatActivity() {
 
         val qrCode = byteArray
 
-        dbHandler.updateRow(modifyId, name, age, email, date, qrCode, count, price)
+        dbHandler.updateRow(modifyId, date, qrCode, count, price)
         Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show()
         finish()
     }

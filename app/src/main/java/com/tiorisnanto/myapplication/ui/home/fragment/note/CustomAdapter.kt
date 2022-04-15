@@ -40,9 +40,9 @@ class CustomAdapter(
         var dataitem = dataList[position]
 
         val rowView = inflater.inflate(R.layout.list_row, parent, false)
-        rowView.findViewById<TextView>(R.id.row_name).text = dataitem["name"]
-        rowView.findViewById<TextView>(R.id.row_age).text = "Age: " + dataitem["age"]
-        rowView.findViewById<TextView>(R.id.row_email).text = "Email: " + dataitem["email"]
+//        rowView.findViewById<TextView>(R.id.row_name).text = dataitem["name"]
+//        rowView.findViewById<TextView>(R.id.row_age).text = "Age: " + dataitem["age"]
+//        rowView.findViewById<TextView>(R.id.row_email).text = "Email: " + dataitem["email"]
         rowView.findViewById<TextView>(R.id.row_date).text = "Date: " + dataitem["date"]
 
         rowView.tag = position

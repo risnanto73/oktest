@@ -12,7 +12,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(
             "CREATE TABLE $TABLE_NAME " +
-                    "($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_NAME TEXT, $COLUMN_AGE TEXT, $COLUMN_EMAIL TEXT, $COLUMN_DATE TEXT,$COLUMN_IMAGE BYTEARRAY, $COLUMN_COUNT TEXT, $COLUMN_PRICE TEXT)"
+                    "($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_DATE TEXT,$COLUMN_IMAGE BYTEARRAY, $COLUMN_COUNT TEXT, $COLUMN_PRICE TEXT)"
         )
     }
 
@@ -21,11 +21,11 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         onCreate(db)
     }
 
-    fun insertRow(name: String, age: String, email: String, date: String, image: ByteArray, count: String, price: String) {
+    fun insertRow(date: String, image: ByteArray, count: String, price: String) {
         val values = ContentValues()
-        values.put(COLUMN_NAME, name)
-        values.put(COLUMN_AGE, age)
-        values.put(COLUMN_EMAIL, email)
+//        values.put(COLUMN_NAME, name)
+//        values.put(COLUMN_AGE, age)
+//        values.put(COLUMN_EMAIL, email)
         values.put(COLUMN_DATE, date)
         values.put(COLUMN_IMAGE, image)
         values.put(COLUMN_COUNT, count)
@@ -38,18 +38,18 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     fun updateRow(
         row_id: String,
-        name: String,
-        age: String,
-        email: String,
+//        name: String,
+//        age: String,
+//        email: String,
         date: String,
         image: ByteArray,
         count: String,
         price: String
     ) {
         val values = ContentValues()
-        values.put(COLUMN_NAME, name)
-        values.put(COLUMN_AGE, age)
-        values.put(COLUMN_EMAIL, email)
+//        values.put(COLUMN_NAME, name)
+//        values.put(COLUMN_AGE, age)
+//        values.put(COLUMN_EMAIL, email)
         values.put(COLUMN_DATE, date)
         values.put(COLUMN_IMAGE, image)
         values.put(COLUMN_COUNT, count)
@@ -77,9 +77,9 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         const val TABLE_NAME = "users"
 
         const val COLUMN_ID = "id"
-        const val COLUMN_NAME = "name"
-        const val COLUMN_AGE = "age"
-        const val COLUMN_EMAIL = "email"
+//        const val COLUMN_NAME = "name"
+//        const val COLUMN_AGE = "age"
+//        const val COLUMN_EMAIL = "email"
         const val COLUMN_DATE = "date"
         const val COLUMN_IMAGE = "image"
         const val COLUMN_COUNT = "count"

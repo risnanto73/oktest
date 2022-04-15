@@ -25,7 +25,7 @@
             android:layout_below="@id/imgWisata"
             android:layout_marginVertical="10dp"
             android:gravity="center"
-            android:text="Nama Wisata"
+            android:text="COban Putri Malang"
             android:textSize="20sp" />
 
         <ScrollView
@@ -44,46 +44,46 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content">-->
 
-                        <EditText
-                            android:id="@+id/name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Name"
-                            android:inputType="text" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <!--                        <EditText-->
+                    <!--                            android:id="@+id/name"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:hint="Name"-->
+                    <!--                            android:inputType="text" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content">-->
 
-                        <EditText
-                            android:id="@+id/age"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Age"
-                            android:inputType="number" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <!--                        <EditText-->
+                    <!--                            android:id="@+id/age"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:hint="Age"-->
+                    <!--                            android:inputType="number" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content">-->
 
-                        <EditText
-                            android:id="@+id/email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Email"
-                            android:inputType="textEmailAddress" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <!--                        <EditText-->
+                    <!--                            android:id="@+id/email"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:hint="Email"-->
+                    <!--                            android:inputType="textEmailAddress" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilTime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
 
                         <EditText
                             android:id="@+id/txtTime"
@@ -442,30 +442,37 @@
 
                         <Button
                             android:id="@+id/btnUpdate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
                             android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
                             android:maxLines="1"
                             android:onClick="update"
-                            android:text="Update" />
+                            android:text="Update"
+                            android:visibility="gone" />
 
                         <Button
                             android:id="@+id/btnDelete"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
                             android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
                             android:maxLines="1"
                             android:onClick="delete"
-                            android:text="Delete" />
+                            android:text="Delete"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/btnReset"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Reset" />
 
                         <Button
                             android:id="@+id/btnPrint"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="Print" />
 
                     </LinearLayout>
