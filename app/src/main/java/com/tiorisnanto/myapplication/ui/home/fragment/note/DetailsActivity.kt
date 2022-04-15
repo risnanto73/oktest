@@ -5,10 +5,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.print.PrintHelper
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
@@ -16,6 +16,8 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.tiorisnanto.myapplication.R
 import kotlinx.android.synthetic.main.activity_details.*
 import java.io.ByteArrayOutputStream
+import java.text.NumberFormat
+import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -290,5 +292,11 @@ class DetailsActivity : AppCompatActivity() {
         dbHandler.deleteRow(modifyId)
         Toast.makeText(this, "Data Deleted", Toast.LENGTH_SHORT).show()
         finish()
+    }
+
+    private fun formatRupiah(number: Double): String? {
+        val localeID = Locale("in", "ID")
+        val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
+        return formatRupiah.format(number)
     }
 }
