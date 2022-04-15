@@ -1,91 +1,483 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp">
 
-    <EditText
-        android:id="@+id/name"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Age"
-        android:inputType="number" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgWisata"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/a_bg" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email" />
-
-    <TextClock
-        android:id="@+id/date"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp"
-        android:format24Hour="yyyy.MM.dd 'at' HH:mm:ss , z"
-        android:gravity="center"
-        android:hint="12-12-12" />
-
-    <ImageView
-        android:id="@+id/imgQrCode"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_home_24" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnAdd"
+        <TextView
+            android:id="@+id/txtNamaWisata"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:onClick="add"
-            android:text="Add" />
+            android:layout_below="@id/imgWisata"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:text="Nama Wisata"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnUpdate"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:maxLines="1"
-            android:onClick="update"
-            android:text="Update" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtNamaWisata">
 
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:maxLines="1"
-            android:onClick="delete"
-            android:text="Delete" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnPrint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:text="Print" />
+                <LinearLayout
+                    android:id="@+id/layoutInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/age"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Age"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/txtTime"
+                            style="@style/TextAppearance.MaterialComponents.Headline6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Datetime" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextClock
+                        android:id="@+id/date"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="10dp"
+                        android:format24Hour="yyyy.MM.dd 'at' HH:mm:ss , z"
+                        android:gravity="center"
+                        android:hint="12-12-12" />
+
+                    <ImageView
+                        android:id="@+id/imgQrCode"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_home_24" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilDewasa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:elevation="10dp"
+                        android:outlineSpotShadowColor="@color/colorAccent"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="10dp"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Dewasa" />
+
+                            <Button
+                                android:id="@+id/btnDewasaMin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:backgroundTint="#8F8888"
+                                android:text="-" />
+
+                            <TextView
+                                android:id="@+id/valueDewasa"
+                                style="@style/TextAppearance.MaterialComponents.Headline5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="0" />
+
+                            <Button
+                                android:id="@+id/btnDewasaPlus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="+" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/tilAnak"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tilDewasa"
+                        android:layout_marginVertical="10dp"
+                        android:elevation="10dp"
+                        android:outlineSpotShadowColor="@color/colorAccent"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="10dp"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <TextView
+                                style="@style/TextAppearance.AppCompat.Title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:text="Anak" />
+
+                            <Button
+                                android:id="@+id/btnAnakMin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:backgroundTint="#8F8888"
+                                android:text="-" />
+
+                            <TextView
+                                android:id="@+id/valueAnak"
+                                style="@style/TextAppearance.MaterialComponents.Headline5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="0" />
+
+                            <Button
+                                android:id="@+id/btnAnakPlus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="+" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/txtRincian"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tilAnak"
+                        android:layout_marginVertical="10dp"
+                        android:text="Rincian Pemesanan"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/txtRincian"
+                        android:orientation="horizontal">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Jenis tiket"
+                                    android:textStyle="bold" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_weight="1"
+                                    android:text="Dewasa" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Anak" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginVertical="10dp">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Total"
+                                    android:textColor="@color/purple_700" />
+                            </TableRow>
+
+                        </TableLayout>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Jumlah"
+                                    android:textStyle="bold" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/txtCountDewasa"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_weight="1" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/txtCountAnak"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/txtCountTotal"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textColor="@color/purple_700" />
+                            </TableRow>
+
+                        </TableLayout>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Harga tiket"
+                                    android:textStyle="bold" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/txtHargaDewasa"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_weight="1" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/txtHargaAnak"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/txtHargaTotal"
+                                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textColor="@color/purple_700" />
+                            </TableRow>
+
+                        </TableLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnAdd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:onClick="add"
+                            android:text="Add" />
+
+                        <Button
+                            android:id="@+id/btnUpdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:maxLines="1"
+                            android:onClick="update"
+                            android:text="Update" />
+
+                        <Button
+                            android:id="@+id/btnDelete"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:maxLines="1"
+                            android:onClick="delete"
+                            android:text="Delete" />
+
+                        <Button
+                            android:id="@+id/btnPrint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:text="Print" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>

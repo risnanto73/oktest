@@ -43,12 +43,12 @@
         android:layout_marginTop="10dp"
         android:hint="12-12-12" />
 
-    <ImageView
-        android:id="@+id/row_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_home" />
+<!--    <ImageView-->
+<!--        android:id="@+id/row_image"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/ic_home" />-->
 
 
 </LinearLayout>

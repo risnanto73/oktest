@@ -100,9 +100,9 @@ class DashboardFragment : Fragment() {
     private fun doPhotoPrint(byteArray: ByteArray) {
         val printHelper = PrintHelper(requireContext())
         printHelper.scaleMode = PrintHelper.SCALE_MODE_FIT
-        // units are in points (1/72 of an inch)
-        val titleBaseLine = 72f
-        val leftMargin = 54f
+//        // units are in points (1/72 of an inch)
+//        val titleBaseLine = 72f
+//        val leftMargin = 54f
 
         val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
         printHelper.printBitmap("wisata", bitmap)
